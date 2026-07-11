@@ -1,15 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Send, Camera, MessageCircle, Calendar, Map } from "lucide-react";
+import { Globe, Camera, MessageCircle } from "lucide-react";
 import { TAPLINKS } from "@/lib/constants";
 
 const iconMap = {
-  Send,
+  Globe,
   Camera,
   MessageCircle,
-  Calendar,
-  Map,
 } as const;
 
 export default function Links() {

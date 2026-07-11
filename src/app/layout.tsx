@@ -19,13 +19,13 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE_NAME} — Хайкинг-клуб Кыргызстана`,
+    default: `${SITE_NAME} — Джип туры по Кыргызстану`,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
   metadataBase: new URL(SITE_URL),
   openGraph: {
-    title: `${SITE_NAME} — Хайкинг-клуб Кыргызстана`,
+    title: `${SITE_NAME} — Джип туры по Кыргызстану`,
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     siteName: SITE_NAME,
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} — Хайкинг-клуб Кыргызстана`,
+    title: `${SITE_NAME} — Джип туры по Кыргызстану`,
     description: SITE_DESCRIPTION,
     images: ["/images/hero.png"],
   },

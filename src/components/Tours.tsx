@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Clock, DollarSign, ArrowRight } from "lucide-react";
+import { Clock, ArrowRight } from "lucide-react";
 import { TOUR_DATA, WHATSAPP_LINK } from "@/lib/constants";
 
 export default function Tours() {
@@ -24,8 +24,8 @@ export default function Tours() {
             Наши маршруты
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-dark/60">
-            Готовые туры с понятной длительностью и стоимостью. Индивидуальный
-            маршрут — по запросу.
+            Готовые маршруты с проверенной длительностью. Стоимость — индивидуально
+            по запросу, в зависимости от сезона и компоновки тура.
           </p>
         </motion.div>
 
@@ -70,9 +70,8 @@ export default function Tours() {
                       <Clock className="h-4 w-4" />
                       {tour.duration}
                     </span>
-                    <span className="flex items-center gap-1">
-                      <DollarSign className="h-4 w-4" />
-                      {tour.price}
+                    <span className="text-xs font-medium text-accent">
+                      индивидуально по запросу
                     </span>
                   </div>
                 </div>

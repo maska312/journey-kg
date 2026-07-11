@@ -8,7 +8,7 @@ import { WHATSAPP_LINK } from "@/lib/constants";
 const counters = [
   { value: "15+", label: "Маршрутов" },
   { value: "800+", label: "Участников" },
-  { value: "5", label: "Лет опыта" },
+  { value: "10+", label: "Лет опыта" },
 ];
 
 export default function Hero() {
@@ -33,16 +33,19 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-accent">
-            Хайкинг-клуб
+          <p className="mb-4 font-[family-name:var(--font-heading)] text-sm font-extrabold uppercase tracking-[0.3em] text-accent sm:text-base">
+            Джип туры
           </p>
-          <h1 className="font-[family-name:var(--font-heading)] text-5xl font-black uppercase leading-tight tracking-wide sm:text-6xl md:text-7xl lg:text-8xl">
-            Кыргызстан
+          <h1 className="font-[family-name:var(--font-heading)] text-4xl font-black uppercase leading-tight tracking-wide sm:text-5xl md:text-6xl lg:text-7xl">
+            4×4 Tours
             <br />
-            <span className="text-accent">Hiking Tours</span>
+            <span className="text-accent">around Kyrgyzstan</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-white/80 sm:text-xl">
-            Горы, озёра, каньоны. Честные маршруты.
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-white/80 sm:text-xl">
+            Горы, озёра, каньоны, юрточные лагеря, дикая природа, горные маршруты.
+          </p>
+          <p className="mx-auto mt-3 max-w-xl text-base text-white/60 italic">
+            Индивидуальный подход — разработаем маршруты под ваши желания и возможности.
           </p>
         </motion.div>
 

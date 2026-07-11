@@ -1,4 +1,4 @@
-import { Mountain } from "lucide-react";
+import Image from "next/image";
 import { NAV_LINKS, SOCIAL_LINKS, SITE_NAME } from "@/lib/constants";
 
 export default function Footer() {
@@ -9,11 +9,17 @@ export default function Footer() {
           {/* Logo + slogan */}
           <div>
             <div className="flex items-center gap-2 font-[family-name:var(--font-heading)] text-xl font-extrabold text-white">
-              <Mountain className="h-6 w-6 text-accent" />
+              <Image
+                src="/images/logo.jpeg"
+                alt="Journey.kg"
+                width={40}
+                height={40}
+                className="h-10 w-10 rounded-full object-cover"
+              />
               {SITE_NAME}
             </div>
             <p className="mt-3 text-sm text-white/50">
-              Хайкинг-клуб Кыргызстана.
+              Джип туры по Кыргызстану.
               <br />
               Горы, озёра, каньоны.
             </p>
@@ -42,12 +48,12 @@ export default function Footer() {
             <ul className="mt-4 space-y-2">
               <li>
                 <a
-                  href={SOCIAL_LINKS.telegram}
+                  href={SOCIAL_LINKS.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-white/50 transition-colors hover:text-accent"
                 >
-                  Telegram
+                  Facebook
                 </a>
               </li>
               <li>

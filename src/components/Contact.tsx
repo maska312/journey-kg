@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MessageCircle, Phone, Mail } from "lucide-react";
-import { WHATSAPP_LINK, TOUR_DATA } from "@/lib/constants";
+import { WHATSAPP_LINK, TOUR_DATA, PHONE_DISPLAY } from "@/lib/constants";
 
 export default function Contact() {
   return (
@@ -43,7 +43,7 @@ export default function Contact() {
 
               <div className="flex items-center gap-4 text-white/60">
                 <Phone className="h-5 w-5" />
-                <span className="text-sm">+996 XXX XXX XXX</span>
+                <span className="text-sm">{PHONE_DISPLAY}</span>
               </div>
               <div className="flex items-center gap-4 text-white/60">
                 <Mail className="h-5 w-5" />
@@ -119,7 +119,7 @@ export default function Contact() {
                   htmlFor="contact-message"
                   className="mb-1.5 block text-sm font-medium text-white/80"
                 >
-                  Сообщение
+                  Сообщение (ваши предпочтения)
                 </label>
                 <textarea
                   id="contact-message"

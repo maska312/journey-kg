@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Mountain, Menu, X } from "lucide-react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 import { NAV_LINKS, WHATSAPP_LINK } from "@/lib/constants";
 
 export default function Navbar() {
@@ -27,12 +28,20 @@ export default function Navbar() {
           {/* Logo */}
           <a
             href="#"
-            className={`flex items-center gap-2 font-[family-name:var(--font-heading)] text-xl font-extrabold tracking-wider transition-colors ${
-              scrolled ? "text-primary" : "text-white"
-            }`}
+            className="flex items-center gap-2"
           >
-            <Mountain className="h-7 w-7" />
-            JOURNEY.KG
+            <Image
+              src="/images/logo.jpeg"
+              alt="Journey.kg"
+              width={48}
+              height={48}
+              className="h-10 w-10 rounded-full object-cover md:h-12 md:w-12"
+            />
+            <span className={`font-[family-name:var(--font-heading)] text-xl font-extrabold tracking-wider transition-colors ${
+              scrolled ? "text-primary" : "text-white"
+            }`}>
+              JOURNEY.KG
+            </span>
           </a>
 
           {/* Desktop Nav */}

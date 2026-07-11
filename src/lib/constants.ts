@@ -1,13 +1,14 @@
 export const SITE_NAME = "Journey.kg";
 export const SITE_URL = "https://journey.kg";
 export const SITE_DESCRIPTION =
-  "Хайкинг-клуб Кыргызстана — горы, озёра, каньоны. Честные маршруты с местными гидами.";
+  "Джип туры по Кыргызстану — горы, озёра, каньоны, юрточные лагеря, дикая природа. Индивидуальный подход.";
 
-export const WHATSAPP_NUMBER = "996XXXXXXXXX";
+export const WHATSAPP_NUMBER = "996700448100";
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
+export const PHONE_DISPLAY = "+996 700 448 100";
 
 export const SOCIAL_LINKS = {
-  telegram: "https://t.me/hikingclub_kg",
+  facebook: "https://facebook.com/www.journey.kg",
   instagram: "https://instagram.com/journey.kg",
   whatsapp: WHATSAPP_LINK,
 } as const;
@@ -25,7 +26,7 @@ export const TOUR_DATA = [
     id: 1,
     title: "Ала-Арча",
     duration: "1 день",
-    price: "от 3 500 сом",
+    price: "индивидуально",
     image: "/images/ala-archa.png",
     description:
       "Национальный парк в 40 км от Бишкека. Идеально для однодневного трекинга с видами на ледники.",
@@ -34,7 +35,7 @@ export const TOUR_DATA = [
     id: 2,
     title: "Иссык-Куль",
     duration: "2 дня",
-    price: "от 8 500 сом",
+    price: "индивидуально",
     image: "/images/issyk-kul.png",
     description:
       "Второе по величине горное озеро мира. Тёплые пляжи, горячие источники и горные тропы.",
@@ -43,7 +44,7 @@ export const TOUR_DATA = [
     id: 3,
     title: "Сон-Куль",
     duration: "2 дня",
-    price: "от 9 500 сом",
+    price: "индивидуально",
     image: "/images/son-kul.png",
     description:
       "Высокогорное озеро на 3 016 м. Ночёвка в юрте, кочевая культура, нетронутая природа.",
@@ -52,7 +53,7 @@ export const TOUR_DATA = [
     id: 4,
     title: "Каракол",
     duration: "3 дня",
-    price: "от 14 000 сом",
+    price: "индивидуально",
     image: "/images/karakol.png",
     description:
       "Ущелья Джети-Огуз и Алтын-Арашан, горячие источники и еловые леса Тянь-Шаня.",
@@ -61,7 +62,7 @@ export const TOUR_DATA = [
     id: 5,
     title: "Алай",
     duration: "5 дней",
-    price: "от 25 000 сом",
+    price: "индивидуально",
     image: "/images/alay.png",
     description:
       "Алайская долина и Заалайский хребет. Пик Ленина, экспедиционный формат для подготовленных.",
@@ -70,7 +71,7 @@ export const TOUR_DATA = [
     id: 6,
     title: "Индивидуальный тур",
     duration: "По запросу",
-    price: "по запросу",
+    price: "индивидуально",
     image: "/images/custom.png",
     description:
       "Составим маршрут под ваши даты, уровень подготовки и интересы. Напишите нам!",
@@ -142,9 +143,9 @@ export const FAQ_DATA = [
 
 export const TAPLINKS = [
   {
-    label: "Telegram-канал",
-    href: SOCIAL_LINKS.telegram,
-    icon: "Send" as const,
+    label: "Facebook",
+    href: SOCIAL_LINKS.facebook,
+    icon: "Globe" as const,
   },
   {
     label: "Instagram",
@@ -155,15 +156,5 @@ export const TAPLINKS = [
     label: "WhatsApp",
     href: SOCIAL_LINKS.whatsapp,
     icon: "MessageCircle" as const,
-  },
-  {
-    label: "Расписание походов",
-    href: SOCIAL_LINKS.telegram,
-    icon: "Calendar" as const,
-  },
-  {
-    label: "Маршруты и отчёты",
-    href: SOCIAL_LINKS.instagram,
-    icon: "Map" as const,
   },
 ] as const;
