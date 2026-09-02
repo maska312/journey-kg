@@ -3,9 +3,12 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Clock, ArrowRight } from "lucide-react";
-import { TOUR_DATA, WHATSAPP_LINK } from "@/lib/constants";
+import { WHATSAPP_LINK } from "@/lib/constants";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Tours() {
+  const { t } = useLanguage();
+
   return (
     <section id="tours" className="bg-light py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -18,20 +21,19 @@ export default function Tours() {
           className="text-center"
         >
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">
-            Куда поехать
+            {t.tours.badge}
           </p>
           <h2 className="mt-2 font-[family-name:var(--font-heading)] text-3xl font-extrabold uppercase text-dark sm:text-4xl lg:text-5xl">
-            Наши маршруты
+            {t.tours.title}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-dark/60">
-            Готовые маршруты с проверенной длительностью. Стоимость — индивидуально
-            по запросу, в зависимости от сезона и компоновки тура.
+          <p className="mx-auto mt-4 max-w-2xl text-dark/70">
+            {t.tours.subtitle}
           </p>
         </motion.div>
 
         {/* Grid */}
         <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {TOUR_DATA.map((tour, i) => (
+          {t.tours.list.map((tour, i) => (
             <motion.div
               key={tour.id}
               initial={{ opacity: 0, y: 30 }}
@@ -60,7 +62,7 @@ export default function Tours() {
                 <h3 className="font-[family-name:var(--font-heading)] text-xl font-bold text-dark">
                   {tour.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-dark/60">
+                <p className="mt-2 text-sm leading-relaxed text-dark/70">
                   {tour.description}
                 </p>
 
@@ -71,7 +73,7 @@ export default function Tours() {
                       {tour.duration}
                     </span>
                     <span className="text-xs font-medium text-accent">
-                      индивидуально по запросу
+                      {t.tours.priceCustom}
                     </span>
                   </div>
                 </div>
@@ -82,7 +84,7 @@ export default function Tours() {
                   rel="noopener noreferrer"
                   className="mt-4 flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-accent-dark"
                 >
-                  Подробнее
+                  {t.tours.detailsBtn}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </div>

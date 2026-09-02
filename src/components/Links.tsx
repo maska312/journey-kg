@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Globe, Camera, MessageCircle } from "lucide-react";
 import { TAPLINKS } from "@/lib/constants";
+import { useLanguage } from "@/context/LanguageContext";
 
 const iconMap = {
   Globe,
@@ -11,6 +12,8 @@ const iconMap = {
 } as const;
 
 export default function Links() {
+  const { t } = useLanguage();
+
   return (
     <section className="bg-dark py-20 sm:py-28">
       <div className="mx-auto max-w-md px-4">
@@ -23,10 +26,10 @@ export default function Links() {
           className="text-center"
         >
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">
-            Мы в сети
+            {t.links.badge}
           </p>
           <h2 className="mt-2 font-[family-name:var(--font-heading)] text-3xl font-extrabold uppercase text-white sm:text-4xl">
-            Наши ссылки
+            {t.links.title}
           </h2>
         </motion.div>
 

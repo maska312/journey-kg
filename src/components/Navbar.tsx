@@ -3,11 +3,22 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import { NAV_LINKS, WHATSAPP_LINK } from "@/lib/constants";
+import { WHATSAPP_LINK } from "@/lib/constants";
+import { useLanguage } from "@/context/LanguageContext";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { t } = useLanguage();
+
+  const navLinks = [
+    { label: t.nav.about, href: "#about" },
+    { label: t.nav.tours, href: "#tours" },
+    { label: t.nav.reviews, href: "#reviews" },
+    { label: t.nav.faq, href: "#faq" },
+    { label: t.nav.contact, href: "#contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -19,7 +30,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md shadow-lg"
+          ? "bg-white/95 backdrop-blur-md shadow-lg"
           : "bg-transparent"
       }`}
     >
@@ -45,8 +56,8 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden items-center gap-8 md:flex">
-            {NAV_LINKS.map((link) => (
+          <div className="hidden items-center gap-6 lg:gap-8 md:flex">
+            {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -57,37 +68,45 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+
+            {/* Language Switcher */}
+            <LanguageSwitcher scrolled={scrolled} />
+
             <a
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-accent px-6 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              className="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-accent-dark hover:scale-105 active:scale-95"
             >
-              Записаться
+              {t.nav.cta}
             </a>
           </div>
 
-          {/* Mobile burger */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className={`md:hidden transition-colors ${
-              scrolled ? "text-dark" : "text-white"
-            }`}
-            aria-label="Меню"
-          >
-            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          {/* Mobile Right Controls: Language switcher + burger */}
+          <div className="flex items-center gap-3 md:hidden">
+            <LanguageSwitcher scrolled={scrolled} />
+
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className={`p-1.5 rounded-lg transition-colors ${
+                scrolled ? "text-dark hover:bg-black/5" : "text-white hover:bg-white/10"
+              }`}
+              aria-label={t.nav.menuAria}
+            >
+              {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ${
-          mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          mobileOpen ? "max-h-[28rem] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="bg-white/95 backdrop-blur-md px-4 pb-6 pt-2 shadow-lg">
-          {NAV_LINKS.map((link) => (
+          {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -97,14 +116,19 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 block rounded-full bg-accent px-6 py-3 text-center text-sm font-semibold text-white transition-opacity hover:opacity-90"
-          >
-            Записаться
-          </a>
+
+          <div className="mt-4 pt-2 border-t border-gray-100 flex flex-col gap-3">
+            <LanguageSwitcher isMobile={true} />
+
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block rounded-full bg-accent px-6 py-3 text-center text-sm font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
+            >
+              {t.nav.cta}
+            </a>
+          </div>
         </div>
       </div>
     </nav>

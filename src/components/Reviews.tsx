@@ -2,9 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
-import { REVIEWS_DATA } from "@/lib/constants";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Reviews() {
+  const { t } = useLanguage();
+
   return (
     <section id="reviews" className="bg-light py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -17,16 +19,16 @@ export default function Reviews() {
           className="text-center"
         >
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">
-            Отзывы
+            {t.reviews.badge}
           </p>
           <h2 className="mt-2 font-[family-name:var(--font-heading)] text-3xl font-extrabold uppercase text-dark sm:text-4xl lg:text-5xl">
-            Что говорят туристы
+            {t.reviews.title}
           </h2>
         </motion.div>
 
         {/* Horizontal scroll on mobile, grid on desktop */}
-        <div className="mt-14 flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible sm:pb-0">
-          {REVIEWS_DATA.map((review, i) => (
+        <div className="mt-14 flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:overflow-visible sm:pb-0">
+          {t.reviews.list.map((review, i) => (
             <motion.div
               key={review.id}
               initial={{ opacity: 0, y: 30 }}
@@ -61,7 +63,7 @@ export default function Reviews() {
               </div>
 
               {/* Text */}
-              <p className="mt-3 text-sm leading-relaxed text-dark/70">
+              <p className="mt-3 text-sm leading-relaxed text-dark/70 whitespace-pre-line">
                 &ldquo;{review.text}&rdquo;
               </p>
             </motion.div>

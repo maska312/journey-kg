@@ -1,7 +1,20 @@
+"use client";
+
 import Image from "next/image";
-import { NAV_LINKS, SOCIAL_LINKS, SITE_NAME } from "@/lib/constants";
+import { SOCIAL_LINKS, SITE_NAME } from "@/lib/constants";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
+  const navLinks = [
+    { label: t.nav.about, href: "#about" },
+    { label: t.nav.tours, href: "#tours" },
+    { label: t.nav.reviews, href: "#reviews" },
+    { label: t.nav.faq, href: "#faq" },
+    { label: t.nav.contact, href: "#contact" },
+  ];
+
   return (
     <footer className="bg-dark-light border-t border-white/10">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -19,17 +32,17 @@ export default function Footer() {
               {SITE_NAME}
             </div>
             <p className="mt-3 text-sm text-white/50">
-              Джип туры по Кыргызстану.
+              {t.footer.slogan1}
               <br />
-              Горы, озёра, каньоны.
+              {t.footer.slogan2}
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="font-semibold text-white">Навигация</h4>
+            <h4 className="font-semibold text-white">{t.footer.navTitle}</h4>
             <ul className="mt-4 space-y-2">
-              {NAV_LINKS.map((link) => (
+              {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
@@ -44,7 +57,7 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h4 className="font-semibold text-white">Соцсети</h4>
+            <h4 className="font-semibold text-white">{t.footer.socialTitle}</h4>
             <ul className="mt-4 space-y-2">
               <li>
                 <a
@@ -83,7 +96,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-12 border-t border-white/10 pt-6 text-center">
           <p className="text-xs text-white/40">
-            © 2025 {SITE_NAME}. Все права защищены.
+            {t.footer.rights}
           </p>
         </div>
       </div>

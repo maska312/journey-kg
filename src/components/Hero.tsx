@@ -4,24 +4,27 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { WHATSAPP_LINK } from "@/lib/constants";
-
-const counters = [
-  { value: "15+", label: "Маршрутов" },
-  { value: "800+", label: "Участников" },
-  { value: "10+", label: "Лет опыта" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
+
+  const counters = [
+    { value: "15+", label: t.hero.counters.routes },
+    { value: "800+", label: t.hero.counters.travelers },
+    { value: "10+", label: t.hero.counters.experience },
+  ];
+
   return (
     <section id="hero" className="relative h-screen w-full overflow-hidden">
       {/* Background */}
       <Image
         src="/images/hero.png"
-        alt="Горы Кыргызстана"
+        alt="Mountains of Kyrgyzstan"
         fill
         className="object-cover"
         sizes="100vw"
-        preload
+        priority
       />
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
@@ -34,18 +37,18 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <p className="mb-4 font-[family-name:var(--font-heading)] text-sm font-extrabold uppercase tracking-[0.3em] text-accent sm:text-base">
-            Джип туры
+            {t.hero.badge}
           </p>
           <h1 className="font-[family-name:var(--font-heading)] text-4xl font-black uppercase leading-tight tracking-wide sm:text-5xl md:text-6xl lg:text-7xl">
-            4×4 Tours
+            {t.hero.titleLine1}
             <br />
-            <span className="text-accent">around Kyrgyzstan</span>
+            <span className="text-accent">{t.hero.titleLine2}</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-white/80 sm:text-xl">
-            Горы, озёра, каньоны, юрточные лагеря, дикая природа, горные маршруты.
+            {t.hero.desc1}
           </p>
           <p className="mx-auto mt-3 max-w-xl text-base text-white/60 italic">
-            Индивидуальный подход — разработаем маршруты под ваши желания и возможности.
+            {t.hero.desc2}
           </p>
         </motion.div>
 
@@ -58,17 +61,17 @@ export default function Hero() {
         >
           <a
             href="#tours"
-            className="rounded-full bg-accent px-8 py-3.5 text-sm font-semibold text-white transition-all hover:opacity-90 hover:scale-105"
+            className="rounded-full bg-accent px-8 py-3.5 text-sm font-semibold text-white transition-all hover:bg-accent-dark hover:scale-105 active:scale-95 shadow-md"
           >
-            Смотреть маршруты
+            {t.hero.ctaTours}
           </a>
           <a
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full border-2 border-white px-8 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white hover:text-dark"
+            className="rounded-full border-2 border-white px-8 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white hover:text-dark hover:scale-105 active:scale-95 shadow-md"
           >
-            Написать в WhatsApp
+            {t.hero.ctaWhatsapp}
           </a>
         </motion.div>
 
@@ -77,14 +80,14 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="absolute bottom-12 left-0 right-0 flex justify-center gap-12 sm:gap-20"
+          className="absolute bottom-12 left-0 right-0 flex justify-center gap-8 sm:gap-16 md:gap-20"
         >
           {counters.map((c) => (
             <div key={c.label} className="text-center">
-              <p className="font-[family-name:var(--font-heading)] text-3xl font-extrabold sm:text-4xl">
+              <p className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl md:text-4xl font-extrabold">
                 {c.value}
               </p>
-              <p className="mt-1 text-xs uppercase tracking-widest text-white/60">
+              <p className="mt-1 text-xs uppercase tracking-widest text-white/70">
                 {c.label}
               </p>
             </div>

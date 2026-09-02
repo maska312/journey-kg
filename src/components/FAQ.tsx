@@ -3,10 +3,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { FAQ_DATA } from "@/lib/constants";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const { t } = useLanguage();
 
   const toggle = (i: number) => {
     setOpenIndex(openIndex === i ? null : i);
@@ -24,16 +25,16 @@ export default function FAQ() {
           className="text-center"
         >
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">
-            Вопросы
+            {t.faq.badge}
           </p>
           <h2 className="mt-2 font-[family-name:var(--font-heading)] text-3xl font-extrabold uppercase text-dark sm:text-4xl lg:text-5xl">
-            Частые вопросы
+            {t.faq.title}
           </h2>
         </motion.div>
 
         {/* Accordion */}
         <div className="mt-12 space-y-4">
-          {FAQ_DATA.map((item, i) => (
+          {t.faq.list.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
